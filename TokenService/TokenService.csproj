@@ -126,6 +126,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composition\CompositionModule.cs" />
     <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="ITokenService.cs" />

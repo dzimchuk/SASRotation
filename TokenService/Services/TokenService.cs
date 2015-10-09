@@ -13,8 +13,20 @@ namespace TokenService.Services
         {
             this.configuration = configuration;
         }
+        
+        public Task<string> GetReadSharedAccessSignature()
+        {
+            var ruleName = configuration.Find("ReadAuthorizationRuleName");
+            return GetSharedAccessSignature(ruleName);
+        }
 
-        public async Task<string> GetSharedAccessSignature(string ruleName)
+        public Task<string> GetWriteSharedAccessSignature()
+        {
+            var ruleName = configuration.Find("WriteAuthorizationRuleName");
+            return GetSharedAccessSignature(ruleName);
+        }
+
+        private async Task<string> GetSharedAccessSignature(string ruleName)
         {
             var queueName = configuration.Find("QueueName");
 
@@ -26,9 +38,9 @@ namespace TokenService.Services
                 throw new Exception($"Authorization rule {ruleName} was not found");
 
             var address = ServiceBusEnvironment.CreateServiceUri("sb", configuration.Find("Namespace"), string.Empty);
-            var topicAddress = address + queueName;
+            var queueAddress = address + queueName;
 
-            return SharedAccessSignatureTokenProvider.GetSharedAccessSignature(ruleName, rule.PrimaryKey, topicAddress,
+            return SharedAccessSignatureTokenProvider.GetSharedAccessSignature(ruleName, rule.PrimaryKey, queueAddress,
                 TimeSpan.FromSeconds(int.Parse(configuration.Find("SignatureExpiration"))));
         }
     }

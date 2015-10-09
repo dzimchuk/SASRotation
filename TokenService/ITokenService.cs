@@ -4,6 +4,7 @@ namespace TokenService
 {
     public interface ITokenService
     {
-        Task<string> GetSharedAccessSignature(string ruleName);
+        Task<string> GetReadSharedAccessSignature();
+        Task<string> GetWriteSharedAccessSignature();
     }
 }

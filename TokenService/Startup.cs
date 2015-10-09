@@ -21,6 +21,7 @@ namespace TokenService
         private static void InitializeLightInject(HttpConfiguration config)
         {
             var container = new ServiceContainer();
+            container.RegisterFrom<Composition.CompositionModule>();
             container.RegisterApiControllers();
             container.EnableWebApi(config);
         }

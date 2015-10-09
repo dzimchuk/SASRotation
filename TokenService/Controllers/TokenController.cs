@@ -8,26 +8,22 @@ namespace TokenService.Controllers
     public class TokenController : ApiController
     {
         private readonly ITokenService tokenService;
-        private readonly IConfiguration configuration;
 
-        public TokenController(ITokenService tokenService, IConfiguration configuration)
+        public TokenController(ITokenService tokenService)
         {
             this.tokenService = tokenService;
-            this.configuration = configuration;
         }
 
         [Route("readtoken")]
         public async Task<Token> GetReadToken()
         {
-            var ruleName = configuration.Find("ReadAuthorizationRuleName");
-            return new Token { SharedAccessSignature = await tokenService.GetSharedAccessSignature(ruleName) };
+            return new Token { SharedAccessSignature = await tokenService.GetReadSharedAccessSignature() };
         }
 
         [Route("writetoken")]
         public async Task<Token> GetWriteToken()
         {
-            var ruleName = configuration.Find("WriteAuthorizationRuleName");
-            return new Token { SharedAccessSignature = await tokenService.GetSharedAccessSignature(ruleName) };
+            return new Token { SharedAccessSignature = await tokenService.GetWriteSharedAccessSignature() };
         }
     }
 }
