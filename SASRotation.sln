@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenService", "TokenServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyRotationJob", "KeyRotationJob\KeyRotationJob.csproj", "{789DF648-1CED-41E5-98C4-57A2233819CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sender", "Sender\Sender.csproj", "{C5003D77-45C2-4E69-B034-2D0F31F9C453}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listener", "Listener\Listener.csproj", "{88E433DC-0E27-4EFD-A2FA-1653F017FC19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{789DF648-1CED-41E5-98C4-57A2233819CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{789DF648-1CED-41E5-98C4-57A2233819CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{789DF648-1CED-41E5-98C4-57A2233819CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5003D77-45C2-4E69-B034-2D0F31F9C453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5003D77-45C2-4E69-B034-2D0F31F9C453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5003D77-45C2-4E69-B034-2D0F31F9C453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5003D77-45C2-4E69-B034-2D0F31F9C453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88E433DC-0E27-4EFD-A2FA-1653F017FC19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88E433DC-0E27-4EFD-A2FA-1653F017FC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88E433DC-0E27-4EFD-A2FA-1653F017FC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88E433DC-0E27-4EFD-A2FA-1653F017FC19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
