@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.IO;
+using Microsoft.Azure.WebJobs;
 using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 
@@ -8,6 +9,7 @@ namespace KeyRotationJob
 {
     public class Functions
     {
+        [NoAutomaticTrigger]
         public static void RegenerateKey(TextWriter log)
         {
             var manager = NamespaceManager.CreateFromConnectionString(ConfigurationManager.AppSettings["ServiceBusConnectionString"]);
