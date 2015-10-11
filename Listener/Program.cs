@@ -24,9 +24,12 @@ namespace Listener
             {
                 try
                 {
-                    var message = await client.ReceiveAsync(TimeSpan.MaxValue);
-                    await message.CompleteAsync();
-                    Console.WriteLine("{0} Received {1}", DateTime.Now, message.GetBody<Guid>());
+                    var message = await client.ReceiveAsync();
+                    if (message != null)
+                    {
+                        await message.CompleteAsync();
+                        Console.WriteLine("{0} Received {1}", DateTime.Now, message.GetBody<Guid>());
+                    }
                 }
                 catch (UnauthorizedAccessException e)
                 {
